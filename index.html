@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Voucher</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #3a3128;
+      color: #f5f1eb;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100svh;
+      overflow: hidden;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      transform: scale(1.02);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.46) 0%,
+        rgba(0,0,0,0.24) 48%,
+        rgba(58,49,40,0.98) 100%
+      );
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 42px;
+    }
+
+    .scroll-button {
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+
+      color: white;
+      padding: 14px 24px;
+      border-radius: 999px;
+
+      font-size: 14px;
+      font-weight: 500;
+
+      cursor: pointer;
+
+      animation: float 2.4s ease-in-out infinite;
+      transition: all 0.25s ease;
+    }
+
+    .scroll-button:hover {
+      background: rgba(255,255,255,0.14);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* VOUCHER SECTION */
+    .voucher-section {
+      min-height: 100svh;
+      background: #3a3128;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 84px 22px;
+    }
+
+    .voucher-card {
+      width: 100%;
+      max-width: 540px;
+    }
+
+    .eyebrow {
+      color: rgba(255,255,255,0.42);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 11px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 12vw, 5rem);
+      line-height: 0.92;
+      letter-spacing: -0.06em;
+      font-weight: 600;
+      margin-bottom: 30px;
+    }
+
+    .text-box {
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 26px 22px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .text-box p {
+      color: rgba(255,255,255,0.84);
+      font-size: 15px;
+      line-height: 1.8;
+      margin-bottom: 18px;
+    }
+
+    .text-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .expiry {
+      color: rgba(255,255,255,0.46) !important;
+      font-size: 13px !important;
+      letter-spacing: 0.03em;
+    }
+
+    /* MOBILE */
+    @media (max-width: 640px) {
+      .hero-content {
+        padding-bottom: 36px;
+      }
+
+      .scroll-button {
+        font-size: 13px;
+        padding: 13px 22px;
+      }
+
+      .text-box {
+        border-radius: 22px;
+        padding: 22px 18px;
+      }
+
+      .text-box p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <img
+      class="hero-image"
+      src="https://atwenty-four.transforms.svdcdn.com/production/images/BACKROOMS_Digi_1-Sheet_2025x3000_Chiwetel_W6_FIN03.jpg?w=2025&auto=compress%2Cformat&fit=crop&dm=1774976018&s=0269f8ffa1c7be1796d4bd7899620070"
+      alt="background"
+    />
+
+    <div class="hero-content">
+      <button class="scroll-button" id="scrollBtn">
+        scroll down
+      </button>
+    </div>
+  </section>
+
+  <section class="voucher-section" id="voucher">
+    <div class="voucher-card">
+      <p class="eyebrow">only for ganga</p>
+
+      <h1>MOVIE VOUCHER</h1>
+
+      <div class="text-box">
+        <p>
+          i ran around shaw and gv but cinema vouchers don't really seem to be a thing here.
+          so i built this small website for you to tell you i'll pay for your ticket to the 
+          backrooms movie + a snack + a drink!
+        </p>
+
+        <p>
+          in case you're already planning on seeing this movie with someone else,
+          no hard feelings, i can still pay for you, or we just go and see another one!
+        </p>
+
+        <p class="expiry">
+          in theatres from 18/06, at shaw. voucher expires 31/12/2026
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('scrollBtn').addEventListener('click', () => {
+      document.getElementById('voucher').scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  </script>
+
+</body>
+</html>
