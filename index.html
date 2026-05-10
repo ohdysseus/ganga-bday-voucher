@@ -92,39 +92,7 @@
       100% { transform: translateY(0); }
     }
 
-    /* MARQUEE EYEBROW */
-    .marquee-wrapper {
-      position: absolute;
-      top: 18px;
-      left: 5vw;
-      right: 5vw;
-      height: 120px;
-      overflow: hidden;
-      z-index: 3;
-      pointer-events: none;
-    }
-
-    .marquee {
-      display: flex;
-      flex-direction: column;
-      animation: scroll 8s linear infinite;
-    }
-
-    .marquee span {
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.45);
-      padding: 18px 0;
-      text-align: center;
-    }
-
-    @keyframes scroll {
-      0% { transform: translateY(0); }
-      100% { transform: translateY(-50%); }
-    }
-
-    /* VOUCHER */
+    /* VOUCHER SECTION */
     .voucher-section {
       min-height: 100svh;
       background: #3a3128;
@@ -139,6 +107,41 @@
     .voucher-card {
       width: 100%;
       max-width: 540px;
+    }
+
+    /* HORIZONTAL MARQUEE */
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+
+      margin-bottom: 18px;
+    }
+
+    .marquee {
+      display: flex;
+      width: max-content;
+
+      animation: scroll 12s linear infinite;
+    }
+
+    .marquee span {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: lowercase;
+
+      color: rgba(255,255,255,0.42);
+
+      padding-right: 40px;
+      white-space: nowrap;
+    }
+
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
     }
 
     h1 {
@@ -183,6 +186,10 @@
         border-radius: 22px;
         padding: 22px 18px;
       }
+
+      .marquee span {
+        padding-right: 28px;
+      }
     }
   </style>
 </head>
@@ -190,19 +197,6 @@
 <body>
 
   <section class="hero">
-
-    <!-- MARQUEE -->
-    <div class="marquee-wrapper">
-      <div class="marquee">
-        <span>only for ganga</span>
-        <span>happy 24th bday</span>
-        <span>only for ganga</span>
-        <span>happy 24th bday</span>
-        <span>only for ganga</span>
-        <span>happy 24th bday</span>
-      </div>
-    </div>
-
     <div class="overlay"></div>
 
     <img
@@ -219,7 +213,20 @@
   </section>
 
   <section class="voucher-section" id="voucher">
+
     <div class="voucher-card">
+
+      <!-- HORIZONTAL EYEBROW MARQUEE -->
+      <div class="marquee-wrapper">
+        <div class="marquee">
+          <span>only for ganga</span>
+          <span>happy 24th bday</span>
+          <span>only for ganga</span>
+          <span>happy 24th bday</span>
+          <span>only for ganga</span>
+          <span>happy 24th bday</span>
+        </div>
+      </div>
 
       <h1>MOVIE VOUCHER</h1>
 
