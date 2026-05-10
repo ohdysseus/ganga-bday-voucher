@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Movie Voucher</title>
 
-  <!-- FONT -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -85,11 +84,6 @@
       cursor: pointer;
 
       animation: float 2.4s ease-in-out infinite;
-      transition: all 0.25s ease;
-    }
-
-    .scroll-button:hover {
-      background: rgba(255,255,255,0.14);
     }
 
     @keyframes float {
@@ -98,7 +92,39 @@
       100% { transform: translateY(0); }
     }
 
-    /* VOUCHER SECTION */
+    /* MARQUEE EYEBROW */
+    .marquee-wrapper {
+      position: absolute;
+      top: 18px;
+      left: 5vw;
+      right: 5vw;
+      height: 120px;
+      overflow: hidden;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .marquee {
+      display: flex;
+      flex-direction: column;
+      animation: scroll 8s linear infinite;
+    }
+
+    .marquee span {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      padding: 18px 0;
+      text-align: center;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-50%); }
+    }
+
+    /* VOUCHER */
     .voucher-section {
       min-height: 100svh;
       background: #3a3128;
@@ -115,13 +141,6 @@
       max-width: 540px;
     }
 
-    .eyebrow {
-      color: rgba(255,255,255,0.42);
-      letter-spacing: 0.16em;
-      font-size: 11px;
-      margin-bottom: 18px;
-    }
-
     h1 {
       font-size: clamp(2.7rem, 12vw, 5rem);
       line-height: 0.92;
@@ -136,7 +155,6 @@
       border-radius: 28px;
       padding: 26px 22px;
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
     }
 
     .text-box p {
@@ -153,15 +171,9 @@
     .expiry {
       color: rgba(255,255,255,0.46) !important;
       font-size: 13px !important;
-      letter-spacing: 0.03em;
     }
 
-    /* MOBILE */
     @media (max-width: 640px) {
-      .hero-content {
-        padding-bottom: 36px;
-      }
-
       .scroll-button {
         font-size: 13px;
         padding: 13px 22px;
@@ -171,10 +183,6 @@
         border-radius: 22px;
         padding: 22px 18px;
       }
-
-      .text-box p {
-        font-size: 14px;
-      }
     }
   </style>
 </head>
@@ -182,11 +190,24 @@
 <body>
 
   <section class="hero">
+
+    <!-- MARQUEE -->
+    <div class="marquee-wrapper">
+      <div class="marquee">
+        <span>only for ganga</span>
+        <span>happy 24th bday</span>
+        <span>only for ganga</span>
+        <span>happy 24th bday</span>
+        <span>only for ganga</span>
+        <span>happy 24th bday</span>
+      </div>
+    </div>
+
     <div class="overlay"></div>
 
     <img
       class="hero-image"
-      src="https://upload.wikimedia.org/wikipedia/en/thumb/3/3d/Backrooms_%28film%29_poster.jpg/250px-Backrooms_%28film%29_poster.jpg"
+      src="https://i.namu.wiki/i/mxL5tOJDNimJFbRuZzcoybIswO-fWcXt2lq1-haq0lOUi66_ohWFwPzPzxWGp2aAsy1jrcSppHshM6cZcQJzeQ.webp"
       alt="background"
     />
 
@@ -199,24 +220,22 @@
 
   <section class="voucher-section" id="voucher">
     <div class="voucher-card">
-      <p class="eyebrow">only for ganga</p>
 
       <h1>MOVIE VOUCHER</h1>
 
       <div class="text-box">
         <p>
-          i ran around shaw and gv but cinema vouchers don't really seem to be a thing here, sigh.. 🥀
-          so i decided to take things into my own hands and built this small website for you to 
-          tell you i'll pay for your ticket to the backrooms movie + a snack + a drink! 🎞️🍿
+          i ran around shaw and gv but cinema vouchers don't really seem to be a thing here.
+          so i'm doing it this way: i'll pay for your ticket + a snack + a drink!
         </p>
 
         <p>
           in case you're already planning on seeing this movie with someone else,
-          no hard feelings, i can still pay for you, or we just go and see another one. 
+          no hard feelings, i can still pay for you, or we just go and see another one!
         </p>
 
         <p class="expiry">
-          in theatres from 18/06 at shaw. voucher expires 31/12/2026
+          in theatres from 18/06, at shaw. voucher expires 31/12/2026
         </p>
       </div>
     </div>
